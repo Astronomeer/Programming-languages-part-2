@@ -1,0 +1,186 @@
+/*
+#include <iostream>
+
+using namespace std;
+
+int n;
+double m, S, p, r;
+
+int main()
+{
+	setlocale(LC_ALL, "");
+
+	cout << "Enter S: " << endl;
+	cin >> S;
+	cout << "Enter n: " << endl;
+	cin >> n;
+	cout << "Enter p: " << endl;
+	cin >> p;
+
+
+	if (S > 0.0 && p > 0.0 && n > 0.0)
+	{
+		r = (p / 100);
+		m = (S * r * pow(1 + r, n)) / (12 * (pow(1 + r, n) - 1));
+
+		cout << "Месячная выплата равна: " << m << endl;
+	}
+	else {
+		cout << "Значение(я) не могут быть равны нулю или меньше нуля" << endl;
+		return 0;
+	}
+}
+*/
+/*
+#include <iostream>
+
+using namespace std;
+
+double n,m,m_0, S, p, r, i = 0;
+
+int main() {
+	setlocale(LC_ALL, "");
+	cout << "Введите сумму кредита: " << endl;
+	cin >> S;
+	cout << "Введите размер месячной выплаты: " << endl;
+	cin >> m;
+	cout << "Введите количество лет: " << endl;
+	cin >> n;
+
+	if (S == (m * n))
+	{
+		cout << 0 << endl;
+		return 0;
+	}
+	else
+	{
+		while (i < double(100))
+		{
+			r = i / 100;
+			m_0 = ((S * r * pow((1 + r), n)) / (12 * (pow((1 + r), n) - 1)));
+			if (abs(m - m_0) < 0.001)
+			{
+				p = r * 100;
+				cout << "r : " << p << endl;
+				break;
+			}
+			i += 0.00001;
+		}
+	}
+	return 0;
+}
+*/
+/*
+#include <iostream>
+#include <fstream> // библиотека для работы с файлами
+
+using namespace std;
+
+int main() {
+	ofstream F; // создание потока для записи
+	F.open("C:\\Users\\Lucas\\Desktop\\kchay.txt", ios_base::out); // создаем файл
+	F.close(); // закрываем поток
+
+	return 0;
+}
+*/
+/*
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+string line;
+string path = "C:\\Users\\Lucas\\Desktop\\prikol.txt";
+
+int main()
+{
+	setlocale(LC_ALL, "");
+	
+	ifstream in(path); // открытие файла для чтения
+	if (in.is_open()) // условие, если файл открывается
+	{
+		while (getline(in, line))
+		{
+			cout << line << endl;
+
+		}
+		in.close();
+	}
+	else
+	{
+		cout << "Файл не найден или не существует" << endl;
+		return 0;
+	}
+	for (int i = 0; i < line.size(); i++)
+		if (line[1] >= '0' && line[i] <= '9')
+		{
+			cout << line[i] << " ";
+		}
+	return 0;
+}
+*/
+
+
+#include <iostream>
+
+using namespace std;
+
+ //bool flag = false;
+    //string line;
+    //string path = "C:\\Test\\2.txt";
+    //ifstream in(path); // окрываем файл для чтения
+    //if (in.is_open()) //если файл открывается
+    //{
+    //    in >> line;
+    //    flag = true;
+    // in.close();
+    //}
+    //else {
+    //    cout << "Файл не существует" << endl;
+    //    return 0;
+    //} 
+
+
+    //    
+    //if (line.size() == 30) {
+    //    char c = '';
+    //    string s = line;
+    //    for (int i = 0; i < s.size(); i++) {
+    //        for (int j = 0; j <s.size() - i - 1; j++) {
+    //            if (int(s[j]) > int(s[j + 1] )) {//получение номера буквы
+    //                c = s[j];
+    //                s[j] = s[j + 1];
+    //                s[j + 1] = c;
+    //            }
+    //        }
+    //    }
+
+    //    cout << s << endl;
+    //}
+    //else {
+    //        cout << "Количество букв в файле должно быть равно 30" << endl;
+    //}
+
+
+//Отладка алгоритма
+//char c = 'A';
+//    string s = "CBAD";
+//    for (int i = 0; i < s.size(); i++) {
+//        for (int j = 0; j <s.size() - i -1; j++) {
+//            if (int(s[j] - 'A') > int(s[j + 1] - 'A')) {//получение номера буквы
+//                c = s[j];
+//                s[j] = s[j + 1];
+//                s[j + 1] = c;
+//            }
+//        }
+//    }
+//    cout << s << endl;
+
+
+
+
+}
+
+
