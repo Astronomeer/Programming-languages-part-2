@@ -143,40 +143,53 @@ using namespace std;
     //} 
 
 
-    //    
-    //if (line.size() == 30) {
-    //    char c = '';
-    //    string s = line;
-    //    for (int i = 0; i < s.size(); i++) {
-    //        for (int j = 0; j <s.size() - i - 1; j++) {
-    //            if (int(s[j]) > int(s[j + 1] )) {//получение номера буквы
-    //                c = s[j];
-    //                s[j] = s[j + 1];
-    //                s[j + 1] = c;
-    //            }
-    //        }
-    //    }
+   
+#include <iostream>
+#include <fstream>
 
-    //    cout << s << endl;
-    //}
-    //else {
-    //        cout << "Количество букв в файле должно быть равно 30" << endl;
-    //}
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "");
+
+	string line;
+
+	ifstream in("C:\\Users\\Lucas\\Desktop\\prikol.txt");
+
+	if (in.is_open())
+	{
+		in >> line;
+		in.close();
+	}
+	else {
+		cout << "Ошибка. Что - то не так!" << endl;
+	}
+	if (line.size() == 30)
+	{
+		char c = ' '; 
+		string j = line;
 
 
-//Отладка алгоритма
-//char c = 'A';
-//    string s = "CBAD";
-//    for (int i = 0; i < s.size(); i++) {
-//        for (int j = 0; j <s.size() - i -1; j++) {
-//            if (int(s[j] - 'A') > int(s[j + 1] - 'A')) {//получение номера буквы
-//                c = s[j];
-//                s[j] = s[j + 1];
-//                s[j + 1] = c;
-//            }
-//        }
-//    }
-//    cout << s << endl;
+		for (int i = 0; i < j.size(); i++)
+		{
+			for (int f = 0; f < j.size(); f++)
+			{
+				if (int(j[f]) > int(j[f + 1])) // сравниваем 
+				{
+					c = j[f]; // прирывниваем к значению s[j]
+					j[f] = j[f + 1]; // приравниваем f[j] к f[j+1]
+					j[f + 1] = c; // возвращаем 
+				}
+			}
+		}
+		cout << j; 
+	}
+	else
+	{
+		cout << "Где мои 30 символов?" << endl;
+	}
+}
+
 
 
 
