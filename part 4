@@ -1,0 +1,400 @@
+/*
+#include <fstream>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+  double q; // вводим переменную для задания чисел
+
+  ofstream out("C:\\Users\\Lucas\\Desktop\\prikol.txt"); // открываем файл для записи
+  cout << "enter 10 numbers:\n";
+
+  for (int i = 0; i < 10; i++)
+  {
+    cin >> q;
+    out << q << endl; //записываем числа в файл
+  }
+  out.close();
+
+  ifstream in("C:\\Users\\Lucas\\Desktop\\prikol.txt"); // открываем файл для чтения
+  if (in.is_open()) // проверяем наличие файла
+  {
+    double a, sum = 0.0;
+
+    while (in >> a) // записываем символы из файла в а
+    {
+      sum += a; // считаем сумму
+    }
+    cout << sum;
+  }
+  else
+    cout << "file not found";
+  in.close();
+}
+*/
+/*
+#include <iostream>
+
+using namespace std;
+
+void signum() // тип функции без возвратного значения
+{
+  setlocale(LC_ALL, "");
+  
+  double x;
+
+  cout << "Введите число: ";
+  cin >> x;
+
+  if (x > 0)
+    cout << "Данное число > 0";
+  else if (x == 0)
+    cout << "Данное число = 0";
+  else
+    cout << "Данное число < 0";
+}
+int main()
+{
+  signum();
+}
+*/
+
+/*
+#include <iostream>
+
+using namespace std;
+
+void S_circle()// функция, считающая площади
+{
+  setlocale(LC_ALL, "");
+
+  double S1, S2, S3, r, a, b, h, q;
+  cout << "enter radius of circle: ";
+  cin >> r;
+  cout << "enter height of square: ";
+  cin >> a;
+  cout << "enter weight of square: ";
+  cin >> b;
+  cout << "enter height of triangle: ";
+  cin >> h;
+  cout << "enter osnovanie of triangle: ";
+  cin >> q;
+  S1 = 3.14 * pow(r, 2);
+  S2 = a * b;
+  S3 = (q * h)/2;
+  cout << "Площадь круга: " <<  S1 << endl;
+  cout << "Площадь прямоугольника:  " << S2 << endl;
+  cout << "Площадь треугольника: " << S3 << endl;
+}
+int main() // функция, вызывающая функцию
+{
+  S_circle();
+}*/
+
+/*
+#include <iostream>
+
+using namespace std;
+
+void flag(ostream& hout, int width, int height, char frm, char ch)
+//создаем void, в котором подключаем библиотеку для вывода, вводим
+//переменные для высоты и ширины флага, создаем frm и ch для записи в них символов
+{
+  for (int j = 0; j <= height; j++)
+  {
+    for (int i = 0; i < width ; i++)
+    {
+      if (((j <= 5) and (i <= 7)))
+      {
+        hout.put(frm);
+      }
+      else
+        hout.put(ch);
+    }
+    hout << endl;
+  }
+  //В цикле for сверху мы создаем рисунок: сначала вводим переменную j, и
+  //задаем его <= высоты флага (т.е.13, по числу полос).
+  //Далее вводим переменную i по ширине флага. По сути мы уже нарисовали 13 полос.
+  //Цикл if - отрисовка звезд. В конце мы выводим получившийся флаг.
+}
+
+int main(void) //т.к. войд - ф-я без вывода, то мы создаем основную
+{
+  const char* z = "*"; //указываем символы звезд
+  const char* p = "/"; //указываем символы для отрисовки полос
+  flag(cout, 45,12, *z++, *p++); //вызываем наш void (в скобках указываем входные параметры)
+  cout << endl; //выводим  флаг в консоль
+}*/
+/*
+/*
+#include <cstdio>
+#include <cmath>
+int main()
+{
+    // Declare variables
+    int no_of_lines,                        // The number of lines to display in the graph
+    line_count;                         // Counts the number of lines in the graph
+    double sine_count,                         // Counts the sine values on the y-axis
+    initial_step_size,                  // The initial step size in degrees on the x-axis
+    current_step_value,                 // The current step value in degrees on the x-axis
+    sine_step = 0.05,                   // The step value on the y-axis
+    radian_result;                      // The resulting radian value on the x-axis
+    // Prompt user for information
+    printf("\nEnter the initial step size in degrees: ");
+    scanf("%lf", &initial_step_size);
+    printf("\nEnter the number of lines to be displayed in the graph: ");
+    scanf("%d", &no_of_lines);
+    // Conver to radians and assign to current step value
+    current_step_value = initial_step_size * 3.14 / 180;
+    // Print graph
+    for (line_count = 0; line_count < no_of_lines; line_count++)
+    {
+        // Convert to sin value of radians
+        radian_result = sin(current_step_value);
+        // To ensure that wave fits in window, we count the y-axis by a certain number of steps
+        for (sine_count = -1; sine_count <= 1; sine_count += sine_step)
+        {
+            // Check if radian x value is within y sine range
+            if (radian_result >= sine_count && radian_result < (sine_count + sine_step))
+            {
+                printf("*\n");
+                break;
+            }
+            else printf(" ");
+        }
+        // Increment steps on the x-axis
+        current_step_value += initial_step_size * 3.14 / 180;
+    }
+    return 0;
+}
+*/
+
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string roma_num;
+    cin >> roma_num;
+    int s = 0;
+    for (int i = 0; i < roma_num.length(); ++i) {
+        if (char(roma_num[i]) == 'I') {
+            if (char(roma_num[i+1]) == 'V' || char(roma_num[i+1]) == 'X') s = s - 1;
+            else s = s + 1;
+        }
+        if (char(roma_num[i]) == 'X') {
+            if (char(roma_num[i+1]) == 'L' || char(roma_num[i+1]) == 'C') s = s - 10;
+            else s = s + 10;
+        }
+        if (char(roma_num[i]) == 'C') {
+            if (char(roma_num[i+1]) == 'D' || char(roma_num[i+1]) == 'M') s = s - 100;
+            else s = s + 100;
+        }
+        if (char(roma_num[i]) == 'V') s = s + 5;
+        if (char(roma_num[i]) == 'L') s = s + 50;
+        if (char(roma_num[i]) == 'D') s = s + 500;
+        if (char(roma_num[i]) == 'M') s = s + 1000;
+    }
+    cout << s;
+    return 0;
+}
+*/
+
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    float A[3][4] = {{5, 2, 0, 10}, {3, 5, 2, 5}, {20, 0, 0, 0}};
+    float B[4][2] = {{1.20, 0.50}, {2.80, 0.40}, {5.00, 1.00}, {2.00, 1.50}};
+    float C[3][2];
+    float sum, tax, cur=0;
+    for (int i = 0; i < 3; ++i) {
+        sum = 0; tax = 0;
+        for (int j = 0; j < 4; ++j) {
+            sum = sum + A[i][j] * B[j][0];
+            tax = tax + A[i][j] * B[j][1];
+        }
+        C[i][0] = sum; C[i][1] = tax;
+    }
+    sum=0; tax=0;
+    float curMax = max(max(C[0][0]+C[0][1], C[1][0]+C[1][1]), C[2][0]+C[2][1]);
+    float curMin = min(min(C[0][0]+C[0][1], C[1][0]+C[1][1]), C[2][0]+C[2][1]);
+    float taxMax = max(max(C[0][1], C[1][1]), C[2][1]);
+    float taxMin = min(min(C[0][1], C[1][1]), C[2][1]);
+    sum = C[0][0] + C[1][0] + C[2][0];
+    tax = C[0][1] + C[1][1] + C[2][1];
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 2; ++j) {
+            cur = cur + C[i][j];
+            cout << C[i][j] << " ";
+        }
+        cout << endl;
+        if (curMax == C[i][0]+C[i][1]) curMax = i+1;
+        if (curMin == C[i][0]+C[i][1]) curMin = i+1;
+        if (taxMax == C[i][1]) taxMax = i+1;
+        if (taxMin == C[i][1]) taxMin = i+1;
+    }
+    cout << "1) max cur " << curMax << ", min cur " << curMin<<endl;
+    cout << "2) max tax " << taxMax << ", min tax " << taxMin<<endl;
+    cout << "3) all sum " << sum << endl;
+    cout << "4) all tax " << tax << endl;
+    cout << "5) all cur " << cur << endl;
+    return 0;
+}
+*/
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+vector<int> recognize(vector<char> x) {
+    // creating num array
+    vector<int> nums[1];
+    for (int i = 0; i < 36; ++i) {
+        nums->push_back(i);
+    }
+    //create char array
+    vector<char> letters[1];
+    for (char i = 48; i < 58; ++i) {
+        letters->push_back(i);
+    }
+    for (char i = 65; i < 91; ++i) {
+        letters->push_back(i);
+    }
+    //turn char to int
+    vector<int> result;
+    for (char i : x) {
+        for (int j = 0; j < 36; ++j) {
+            if (i == letters->at(j)) result.push_back(nums->at(j));
+        }
+    }
+    return reinterpret_cast<const vector<int> &>(result);
+}
+
+int to10(const vector<int>& x, int base) {
+    int result = 0;
+    int degree = x.size() - 1;
+    for (int i : x) {
+        result = result + i * pow(base, degree);
+        --degree;
+    }
+    return result;
+}
+
+string numToLet(int a) {
+    if (a == 10) {
+        return "A";
+    }
+    else if (a == 11) {
+        return "B";
+    }
+    else if (a == 12) {
+        return "C";
+    }
+    else if (a == 13) {
+        return "D";
+    }
+    else if (a == 14) {
+        return "E";
+    }
+    else if (a == 15) {
+        return "F";
+    }
+}
+
+string toBase16(int x, int base) {
+    string result;
+    vector<int> b;
+    while (x > 0) {
+        b.insert(b.cbegin(), 1, x % base);
+        x /= base;
+    }
+    reverse(begin(b), end(b));
+    for (int i : b) {
+        if (i < 10) result += to_string(i);
+        else result += numToLet(i);
+    }
+    string rev = string(result.rbegin(), result.rend());
+    return rev;
+}
+
+vector<int> transform(const string& x) {
+    vector<char> a;
+    // split number
+    for (char i : x) {
+        a.push_back(i);
+    }
+
+    // turn char to int
+    vector<int> b;
+    b = recognize(a);
+    return b;
+}
+
+bool checkSystems(int s_from, int s_to) {
+    if (s_from < 2 || s_from > 16) {
+        cout << "Incorrect base system\n";
+        return false;
+    }
+    if (s_to < 2 || s_to > 16) {
+        cout << "Incorrect end system\n";
+        return false;
+    }
+    return true;
+}
+
+bool checkDigits(vector<int> a, int base) {
+    if (any_of(a.cbegin(), a.cend(), [&base](int i) { return i > base; })) return false;
+    return true;
+}
+
+bool checkNegative(string x) {
+    if (x[0] == '-') return true;
+    else return false;
+}
+
+int main() {
+    string num;
+    int sys_from, sys_to;
+    cin >> num >> sys_from >> sys_to;
+    // check systems
+    if (checkSystems(sys_from, sys_to)) {
+
+        // check if number is negative
+        bool negative = checkNegative(num);
+
+        // cast string expression to array of digits
+        vector<int> num_ar = transform(num);
+
+        // check that all digits < base system
+        if (checkDigits(num_ar, sys_from)) {
+
+            // cast to base=10
+            int num10 = to10(num_ar, sys_from);
+
+            // cast to user base & print
+            if (sys_to == 10) {
+                // cast to negative if needed
+                if (negative) num10 = 0 - num10;
+                cout << num10;
+            }
+            else {
+                // cast to user base
+                string num_based = toBase16(num10, sys_to);
+                // cast to negative if needed
+                if (negative) cout << '-' << num_based << endl;
+                else cout << num_based << endl;
+            }
+        }
+        else cout << "Error occurred! Digits are greater than base value!\n";
+    }
+    else cout << "Error occurred!\n";
+    return 0;
+}
